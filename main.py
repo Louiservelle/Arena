@@ -1,5 +1,5 @@
 import pygame
-
+from Player import Player
 pygame.init()
 
 pygame.display.set_caption("Arena")
@@ -13,11 +13,17 @@ while running:
 
     screen.blit(background, (0, 0))
     pygame.display.flip()
+    player = Player()
 
+    keys = pygame.key.get_pressed()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
+        if keys[pygame.K_d]:
+            Player.move_right(player)
+            print("lala")
+
 
 
 
